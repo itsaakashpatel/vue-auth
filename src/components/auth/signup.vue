@@ -69,7 +69,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   data () {
     return {
@@ -104,18 +103,11 @@ export default {
         terms: this.terms
       }
       console.log(formData)
-      axios.post('/signupNewUser?key=AIzaSyB8qmYvNfCv5CKCaR48QZ3_gbjX8h0OEvw', {
-        email: formData.email,
-        password: formData.password,
-        returnSecureToken: true
-      })
-        .then(res => console.log(res))
-        .catch(error => console.log(error))
+      this.$store.dispatch('signUp', {email: formData.email, password: formData.password})
     }
   }
 }
 </script>
-
 <style scoped>
   .signup-form {
     width: 400px;
