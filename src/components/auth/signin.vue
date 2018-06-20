@@ -39,7 +39,7 @@ export default {
         password: this.password
       }
       console.log(formData)
-      this.$store.dispatch('Login', {email: formData.email, password: formData.password})
+      this.$store.dispatch('login', {email: formData.email, password: formData.password})
     }
   }
 }
